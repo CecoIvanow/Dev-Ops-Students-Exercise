@@ -27,3 +27,14 @@ jobs:
       
     - name: Run tests
       run: npm test
+      
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build_test
+  
+    steps:
+      - name: Deploy to Render
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.RENDER_TOKEN }}
+          api-key: ${{ secrets.RENDER_API_KEY }}

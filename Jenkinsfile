@@ -1,14 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('Install dependencies') {
+        stage('Build') {
             steps {
-                bat 'npm install'
+                sh 'npm install'
             }
         }
-        stage('Test') {
+        stage('Test') { 
             steps {
-                bat 'npm test'
+                sh './jenkins/scripts/test.sh' 
             }
         }
     }

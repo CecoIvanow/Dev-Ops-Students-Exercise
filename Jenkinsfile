@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'windows' }
+    agent any
     stages {
         stage('Install dependencies') {
             steps {
